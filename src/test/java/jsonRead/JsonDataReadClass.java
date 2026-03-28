@@ -3,6 +3,7 @@ package jsonRead;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -13,6 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class JsonDataReadClass {
 	public static By b;
     public static WebDriver  driver;
+    public static Properties prop;
 	public static By getBy(String type, String locator) throws IOException {
 		try {
 
@@ -50,6 +52,9 @@ public class JsonDataReadClass {
 }
 	public static void main(String[] args) throws IOException {
 		
+		FileReader file=new FileReader(".//src//test//resources//config.properties");
+		prop=new Properties();
+		prop.load(file);
 		
 	        driver = new ChromeDriver();
 	        driver.manage().window().maximize();
@@ -78,7 +83,8 @@ public class JsonDataReadClass {
 		String locator=fullname.get("locator").toString();
 		
 		By username=getBy(type, locator);
-		driver.findElement(username).sendKeys("Admin");//sending username
+		System.out.println("user name enter...");
+		driver.findElement(username).sendKeys(prop.getProperty("userName"));//sending username
 		
         JSONObject password=(JSONObject) demoQ.get("password");
 		
@@ -87,9 +93,10 @@ public class JsonDataReadClass {
 		
 		By pass=getBy(type1, locator1);
 		
-		driver.findElement(pass).sendKeys("admin123");//sending password
+		driver.findElement(pass).sendKeys(prop.getProperty("password"));//sending password
+		System.out.println("password given...");
 		
-          JSONObject button=(JSONObject) demoQ.get("button");
+        JSONObject button=(JSONObject) demoQ.get("button");
 		
 		String btnType=button.get("type").toString();
 		String btnLoc=button.get("locator").toString();
@@ -97,6 +104,7 @@ public class JsonDataReadClass {
 		By btn=getBy(btnType, btnLoc);
 		
 		driver.findElement(btn).click();//click button
+		System.out.println("click button performed.");
 		
 		
 	}

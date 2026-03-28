@@ -17,7 +17,8 @@
       "locator": "//input[@placeholder='Password']"
     },
 	"URL":{
-		"orangeHRM":"https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+		"orangeHRM":"https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+		"title name":"OrangeHRM"
 	}
   }
 }
