@@ -1,0 +1,23 @@
+{
+  "DemoQA": {
+    "FullName": {
+      "type": "xpath",
+      "locator": "//input[@placeholder='Username']"
+    },
+    "button": {
+      "type": "xpath",
+      "locator": "//button[normalize-space()='Login']"
+    },
+    "Current Address": {
+      "type": "css",
+      "locator": "#currentAddress"
+    },
+    "password": {
+      "type": "xpath",
+      "locator": "//input[@placeholder='Password']"
+    },
+	"URL":{
+		"orangeHRM":"https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+	}
+  }
+}
